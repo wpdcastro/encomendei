@@ -1,6 +1,7 @@
 
 import 'package:encomendei/constants/constantRoutes.dart';
 import 'package:encomendei/stores/app.store.dart';
+import 'package:encomendei/views/menu/widgets/drawer.dart';
 import 'package:encomendei/views/menu/widgets/menu_itens.dart';
 import 'package:encomendei/widgets/button.dart';
 import 'package:flutter/material.dart';
@@ -13,12 +14,14 @@ class MenuView extends StatelessWidget {
   Widget build(BuildContext context) {
     var store = Provider.of<Appstore>(context);
     return Scaffold(
-      
+
+      drawer: DrawerMenu(),
+
       body: Stack( 
         children: <Widget> [
 
           Container(
-            color: Colors.redAccent,
+            color: Colors.orangeAccent,
             height: 120,
             width: MediaQuery.of(context).size.width,
             child: Column(
@@ -28,72 +31,82 @@ class MenuView extends StatelessWidget {
               ],
             ),
           ),
-
+          
           Container(
-            child: GridView.count(
-              
-              physics: BouncingScrollPhysics(),
-              padding: EdgeInsets.all(12),
-              addAutomaticKeepAlives: true,
-              crossAxisCount: 2,
-              children: <Widget> [
-              
-                SizedBox(
-                  height: 280,
-                ),
+            child: ListView(
+              padding: const EdgeInsets.all(60),
+              children: <Widget>[
 
                 SizedBox(
                   height: 280,
                 ),
 
-                MenuItem(  
-                  name: 'Vendas',
-                  route: ConstantRoutes.SellPageRoute,
-                  box_color: Colors.redAccent,
-                  icon: Icon(
-                    Icons.local_grocery_store,
-                    color: Colors.white,
-                    size: 55.0,
-                  ),
+                MenuCard(
+                  route:  ConstantRoutes.SellPageRoute,
+                  label: "Vendas"
                 ),
 
-                MenuItem(  
-                  name: 'Produtos', 
-                  route: ConstantRoutes.ProductsPageRoute,
-                  box_color: Colors.redAccent,
-                  icon: Icon(
-                    Icons.local_grocery_store,
-                    color: Colors.white,
-                    size: 55.0,
-                  ),
+                MenuCard(
+                  route:  ConstantRoutes.SellPageRoute,
+                  label: "Produtos"
+                ),
+                 
+                MenuCard(
+                  route:  ConstantRoutes.SellPageRoute,
+                  label: "Encomendas"
                 ),
 
-                MenuItem(  
-                  name: 'Publicar',
-                  route: ConstantRoutes.PublishPageRoute,
-                  box_color: Colors.redAccent,
-                  icon: Icon(
-                    Icons.folder,
-                    color: Colors.white,
-                    size: 55.0,
-                  ),
+                Container(
+                  height: 50,
+                  color: Colors.amber[600],
+                  child: const Center(child: Text('Vendas')),
                 ),
-
-                MenuItem(  
-                  name: 'Histórico',
-                  route: ConstantRoutes.HistoryPageRoute,
-                  box_color: Colors.redAccent,
-                  icon: Icon(
-                    Icons.phonelink_setup,
-                    color: Colors.white,
-                    size: 55.0,
-                  ),
+                Container(
+                  height: 50,
+                  color: Colors.amber[500],
+                  child: const Center(child: Text('Produtos')),
                 ),
-                
+                Container(
+                  height: 50,
+                  color: Colors.amber[100],
+                  child: const Center(child: Text('Encomendas')),
+                ),
               ],
-            )
-          )
+            ),
+          ),
         ],
+      ),
+    
+      bottomNavigationBar: BottomNavigationBar(
+        
+        backgroundColor: Colors.blueGrey,
+
+        items: <BottomNavigationBarItem> [
+
+          BottomNavigationBarItem(
+              icon: const Icon(Icons.home),
+              title: Text("Home")
+          ),
+
+          BottomNavigationBarItem(
+              
+              icon: Icon(Icons.content_paste),
+              title: Text("Nova Encomenda")
+          ),
+
+          BottomNavigationBarItem(
+              icon: const Icon(Icons.add_shopping_cart),
+              title: Text("Nova Venda")
+          ),
+
+          BottomNavigationBarItem(
+              icon: const Icon(Icons.face),
+              title: Text("Perfil")
+          )
+
+        ],
+        onTap: (int i) {},
+        selectedItemColor: Colors.blue,
       ),
     );
   }

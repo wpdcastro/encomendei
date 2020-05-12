@@ -37,8 +37,13 @@ class _SigninViewState extends State<SigninView> {
             
                 TextFormField(
                   keyboardType: TextInputType.text,
+                  autofocus: false,
                   decoration: InputDecoration( 
                     labelText: 'E-mail',
+                    icon: Icon(
+                      Icons.mail,
+                      color: Colors.grey,
+                    ),
                     labelStyle: TextStyle(
                       color: Colors.redAccent,
                       fontWeight: FontWeight.bold,
@@ -58,10 +63,15 @@ class _SigninViewState extends State<SigninView> {
                 ),
                 
                 TextFormField(
+                  autofocus: false,
                   keyboardType: TextInputType.text,
                   obscureText: true,
                   decoration: InputDecoration( 
                     labelText: 'Senha',
+                    icon: Icon(
+                      Icons.lock,
+                      color: Colors.grey,
+                    ),
                     labelStyle: TextStyle(
                       color: Colors.redAccent,
                       fontWeight: FontWeight.bold,
