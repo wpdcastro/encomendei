@@ -2,6 +2,7 @@ import 'package:encomendei/stores/app.store.dart';
 import 'package:encomendei/views/history/history.pages.dart';
 import 'package:encomendei/views/initial/initial.view.dart';
 import 'package:encomendei/views/menu/menu.view.dart';
+import 'package:encomendei/views/orders/order.page.dart';
 import 'package:encomendei/views/products/products.page.dart';
 import 'package:encomendei/views/publish/publish.page.dart';
 import 'package:encomendei/views/sells/sellinfo.page.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
           '/' : (context) => MenuView(),
           '/start' : (context) => InitialView(),
           '/sell' : (context) => SellsView(),
+          '/order' : (context) => OrderPage(),
           '/sell/info' : (context) => SellInfoPage(),
           '/signup' : (context) => SignupView(),
           '/signup' : (context) => SigninView(),

@@ -3,26 +3,55 @@ import 'package:encomendei/constants/constantRoutes.dart';
 import 'package:encomendei/stores/app.store.dart';
 import 'package:encomendei/views/menu/widgets/drawer.dart';
 import 'package:encomendei/views/menu/widgets/menu_card.dart';
-import 'package:encomendei/views/menu/widgets/menu_itens.dart';
-import 'package:encomendei/widgets/button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class MenuView extends StatelessWidget {
   const MenuView({Key key}) : super(key: key);
+  
 
   @override
   Widget build(BuildContext context) {
     var store = Provider.of<Appstore>(context);
+
     return Scaffold(
+
+      appBar: AppBar(
+        backgroundColor: Colors.deepOrangeAccent,
+        leading: IconButton(
+          icon: Icon(
+            Icons.reorder,
+            color: Colors.white
+          ),
+          onPressed: () {
+            
+          },
+        ),
+
+        title: Text("Encomendei"),
+
+        actions: <Widget> [ 
+          
+          IconButton(
+            icon: Icon(
+              Icons.phonelink_ring,
+              color: Colors.white
+            ),
+            onPressed: () {
+              
+            },
+          ),
+        ],
+
+      ),
 
       drawer: DrawerMenu(),
 
-      body: Stack( 
+      body: Stack(
         children: <Widget> [
 
           Container(
-            color: Colors.orangeAccent,
+            color: Colors.deepOrangeAccent,
             height: 120,
             width: MediaQuery.of(context).size.width,
             child: Column(
@@ -34,43 +63,32 @@ class MenuView extends StatelessWidget {
           ),
           
           Container(
+            color: Colors.deepOrangeAccent,
             child: ListView(
-              padding: const EdgeInsets.all(60),
+              //padding: const EdgeInsets.all(60),
+              
               children: <Widget>[
 
-                SizedBox(
-                  height: 280,
-                ),
+                SizedBox(height: 50),
 
                 MenuCard(
                   route:  ConstantRoutes.SellPageRoute,
-                  label: "Vendas"
+                  label: "Vendas",
                 ),
 
+                SizedBox(height: 30),
+
                 MenuCard(
-                  route:  ConstantRoutes.SellPageRoute,
-                  label: "Produtos"
+                  route:  ConstantRoutes.OrderPageRoute,
+                  label: "Encomendas",
+
                 ),
+
+                SizedBox(height: 30),
                  
                 MenuCard(
-                  route:  ConstantRoutes.SellPageRoute,
-                  label: "Encomendas"
-                ),
-
-                Container(
-                  height: 50,
-                  color: Colors.amber[600],
-                  child: const Center(child: Text('Vendas')),
-                ),
-                Container(
-                  height: 50,
-                  color: Colors.amber[500],
-                  child: const Center(child: Text('Produtos')),
-                ),
-                Container(
-                  height: 50,
-                  color: Colors.amber[100],
-                  child: const Center(child: Text('Encomendas')),
+                  route:  ConstantRoutes.ProductsPageRoute,
+                  label: "Produtos",
                 ),
               ],
             ),
