@@ -2,6 +2,7 @@
 import 'package:encomendei/constants/constantRoutes.dart';
 import 'package:encomendei/stores/app.store.dart';
 import 'package:encomendei/views/menu/widgets/drawer.dart';
+import 'package:encomendei/views/menu/widgets/menu_card.dart';
 import 'package:encomendei/views/menu/widgets/menu_itens.dart';
 import 'package:encomendei/widgets/button.dart';
 import 'package:flutter/material.dart';

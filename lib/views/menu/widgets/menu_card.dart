@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 
 class MenuCard extends StatelessWidget {
   final String name;
+  final String label;
   final int index;
-  final Color color;
-  final Color box_color;
-  final Widget image;
   final Widget icon;
   final String route;
 
-  const MenuCard({Key key, this.name, this.index, this.color, this.box_color, this.image, this.icon, this.route})
+  const MenuCard({Key key, this.name, this.index, this.label, this.icon, this.route})
       : super(key: key);
 
   @override
@@ -44,7 +42,7 @@ class MenuCard extends StatelessWidget {
           ],
         ), 
         decoration: BoxDecoration(
-        color: box_color,
+        color: Colors.redAccent,
         borderRadius: BorderRadius.all(
               Radius.circular(20),
             ),
