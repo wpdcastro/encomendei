@@ -6,6 +6,10 @@ class ProductsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Produtos"),),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () { },
+        child: Icon(Icons.add),
+      ),
       body: Column(
         children: <Widget>[ 
           ProductWidget(

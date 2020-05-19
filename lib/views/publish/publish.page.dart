@@ -7,37 +7,10 @@ class PublishPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    if (_tutorial == true) { 
-
-      return Scaffold( body: PublishTour());
-
-    } else {
-
       return Scaffold( 
 
         appBar: AppBar(title: Text("Publicação"),),
-        body: Publish(),
+        body: Text('Teste'),
       );
-    }
-  }
-}
-
-class PublishTour extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: <Widget> [
-        PageView(
-          children: <Widget> [
-            TourItemWidget(textContent: "Walkthrough1 one"),
-            TourItemWidget(textContent: "Walkthrough2 two"),
-            TourItemWidget(textContent: "Walkthrough3 three"),
-          ],
-          onPageChanged: (value) {
-            
-          },
-        ),
-      ],
-    );
   }
 }

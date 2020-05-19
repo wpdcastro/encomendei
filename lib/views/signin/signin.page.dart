@@ -3,6 +3,7 @@ import 'package:encomendei/constants/constantRoutes.dart';
 import 'package:encomendei/controllers/signin.controller.dart';
 import 'package:encomendei/stores/app.store.dart';
 import 'package:encomendei/view-models/signin.viewmodel.dart';
+import 'package:encomendei/views/tutorials/signin.tutorial.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
