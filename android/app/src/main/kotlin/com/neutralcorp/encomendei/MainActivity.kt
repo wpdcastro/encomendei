@@ -1,4 +1,4 @@
-package com.example.encomendei
+package com.neutralcorp.encomendeiapp
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

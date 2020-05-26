@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "475818255432",
+    "firebase_url": "https://encomendei-5559f.firebaseio.com",
+    "project_id": "encomendei-5559f",
+    "storage_bucket": "encomendei-5559f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:475818255432:android:1cd56a2e91aa7b2ad6e47d",
+        "android_client_info": {
+          "package_name": "com.neutralcorp.encomendeiapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "475818255432-gjueh2ejh7iqiluj1ejt2ko38iqu6h6u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDy7I7nfrqifEIt6FNDgIRYf_kjZAQsqwM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "475818255432-gjueh2ejh7iqiluj1ejt2ko38iqu6h6u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
