@@ -4,14 +4,16 @@ import 'package:encomendei/views/history/history.pages.dart';
 import 'package:encomendei/views/initial/initial.view.dart';
 import 'package:encomendei/views/menu/menu.view.dart';
 import 'package:encomendei/views/notification/notification.page.dart';
-import 'package:encomendei/views/orders/order.page.dart';
+import 'package:encomendei/views/orders/add_order.page.dart';
+import 'package:encomendei/views/orders/orders.page.dart';
+import 'package:encomendei/views/products/add_product.page.dart';
 import 'package:encomendei/views/products/products.page.dart';
 import 'package:encomendei/views/publish/publish.page.dart';
+import 'package:encomendei/views/sells/add_sell.page.dart';
 import 'package:encomendei/views/sells/sellinfo.page.dart';
-import 'package:encomendei/views/sells/sells.view.dart';
+import 'package:encomendei/views/sells/sells.page.dart';
 import 'package:encomendei/views/signin/signin.page.dart';
 import 'package:encomendei/views/signup/signup.view.dart';
-import 'package:encomendei/views/tutorials/signin.tutorial.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -35,8 +37,8 @@ class MyApp extends StatelessWidget {
         routes: {
           '/' : (context) => MenuView(),
           '/start' : (context) => InitialView(),
-          '/sell' : (context) => SellsView(),
-          '/order' : (context) => OrderPage(),
+          '/sell' : (context) => SellsPage(),
+          '/order' : (context) => OrdersPage(),
           '/sell/info' : (context) => SellInfoPage(),
           '/signup' : (context) => SignupView(),
           '/signin' : (context) => SigninView(),
@@ -45,6 +47,9 @@ class MyApp extends StatelessWidget {
           '/publish' : (context) => PublishPage(),
           '/splash' : (context) => Splash(),
           '/notification' : (context) => NotificationPage(),
+          '/add/sell' : (context) => AddSellPage(),
+          '/add/order' : (context) => AddOrderPage(),
+          '/add/product' : (context) => AddProductPage(), 
         }
       ),
     );

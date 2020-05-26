@@ -26,9 +26,12 @@ class AuthRepository implements IAuthRepository {
             accessToken: googleSignInAuthentication.accessToken,
           );
 
-          await firebaseAuth.signInWithCredential(credential).then( (auth) {(
-            firebaseUser = auth.user;
-          });
+          await firebaseAuth.signInWithCredential(credential)
+          .then( 
+            (auth) {
+              firebaseUser = auth.user;
+            }
+          );
         }
 
         return ResponseBuilder.success<FirebaseUser>(

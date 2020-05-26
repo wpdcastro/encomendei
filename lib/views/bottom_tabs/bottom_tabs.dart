@@ -2,7 +2,6 @@
 import 'package:encomendei/constants/constantRoutes.dart';
 import 'package:encomendei/stores/app.store.dart';
 import 'package:encomendei/views/menu/widgets/drawer.dart';
-import 'package:encomendei/views/menu/widgets/menu_card.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -68,7 +67,7 @@ class _BottomTabs extends State<BottomTabs> {
 
       drawer: DrawerMenu(),
 
-      body: Navigator.pushNamed(context, tabs[currentTabIndex]);
+      //body: Navigator.pushNamed(context, tabs[currentTabIndex]),
     
       bottomNavigationBar: BottomNavigationBar(
 
