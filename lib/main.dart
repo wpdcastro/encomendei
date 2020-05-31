@@ -4,6 +4,7 @@ import 'package:encomendei/views/initial/initial.view.dart';
 import 'package:encomendei/views/menu/menu.view.dart';
 import 'package:encomendei/views/orders/order.page.dart';
 import 'package:encomendei/views/products/products.page.dart';
+import 'package:encomendei/views/profile/profile.page.dart';
 import 'package:encomendei/views/publish/publish.page.dart';
 import 'package:encomendei/views/sells/sellinfo.page.dart';
 import 'package:encomendei/views/sells/sells.view.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.red,
         ),
-        initialRoute: '/start',
+        initialRoute: '/profile',
         routes: {
           '/' : (context) => MenuView(),
           '/start' : (context) => InitialView(),
@@ -36,10 +37,10 @@ class MyApp extends StatelessWidget {
           '/order' : (context) => OrderPage(),
           '/sell/info' : (context) => SellInfoPage(),
           '/signup' : (context) => SignupView(),
-          '/signup' : (context) => SigninView(),
           '/history' : (context) => HistoryPage(),
           '/products' : (context) => ProductsPage(),
           '/publish' : (context) => PublishPage(),
+          '/profile' : (context) => ProfileView(),
         }
       ),
     );

@@ -9,4 +9,5 @@ class ConstantRoutes {
   static const String HistoryPageRoute = '/history';
   static const String PublishPageRoute = '/publish';
   static const String OrderPageRoute = '/order';
+  static const String ProfilePageRoute = '/profile';
 }
