@@ -1,9 +1,9 @@
 
 import 'package:encomendei/constants/constantRoutes.dart';
-import 'package:encomendei/controllers/signin.controller.dart';
+import 'package:encomendei/controllers/profile.controller.dart';
+import 'package:encomendei/model/profile.model.dart';
 import 'package:encomendei/stores/app.store.dart';
 import 'package:encomendei/view-models/profile.viewmodel.dart';
-import 'package:encomendei/view-models/signin.viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,7 +15,7 @@ class ProfileView extends StatefulWidget {
 
 class _ProfileViewState extends State<ProfileView> {
   final _formKey = GlobalKey<FormState>();
-  final _controller = new SigninController();
+  final _controller = new ProfileController();
   var model = new ProfileViewModel();
 
   @override
@@ -89,7 +89,7 @@ class _ProfileViewState extends State<ProfileView> {
                       return null;
                     },
                     onSaved: (val) {
-                      model.password = val;
+                      model.address = val;
                     }
                 ),
 
@@ -113,7 +113,7 @@ class _ProfileViewState extends State<ProfileView> {
                       return null;
                     },
                     onSaved: (val) {
-                      model.password = val;
+                      model.city = val;
                     }
                 ),
 
@@ -158,7 +158,7 @@ class _ProfileViewState extends State<ProfileView> {
                       return null;
                     },
                     onSaved: (val) {
-                      model.email = val;
+                      model.tel = val;
                     }
                 ),
 
@@ -182,9 +182,9 @@ class _ProfileViewState extends State<ProfileView> {
 
                         setState(() {});
 
-                        _controller.create(model).then((data) {
+                        _controller.update(model).then((data) {
                           setState(() {});
-                          store.SetUser(data.name, data.email, data.image, data.token);
+                          store.ProfileModel(data.name, data.email, data.image, data.address, data.city, data.tel, data.token);
                           Navigator.pushNamed(context, ConstantRoutes.MenuPageRoute);
                         });
                       }

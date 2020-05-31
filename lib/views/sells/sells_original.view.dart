@@ -1,6 +1,3 @@
-import 'package:encomendei/views/sells/widgets/canceled.dart';
-import 'package:encomendei/views/sells/widgets/delivered.dart';
-import 'package:encomendei/views/sells/widgets/late.dart';
 import 'package:encomendei/views/sells/widgets/sell_item.dart';
 import 'package:encomendei/views/sells/widgets/waiting.dart';
 import 'package:flutter/material.dart';
@@ -51,9 +48,6 @@ class _MyTabbedPageState extends State<SellsView> with SingleTickerProviderState
         controller: _tabController,
         children: [
           Waiting(),
-          Late(),
-          Canceled(),
-          Delivered(),
         ],
       ),
     );
