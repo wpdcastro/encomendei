@@ -28,7 +28,7 @@ class _SellsPageState extends State<SellsPage> {
           children: <Widget> [ 
             Expanded(
               child: StreamBuilder( 
-                stream: Firestore.instance.collection('produtos').snapshots(),
+                stream: Firestore.instance.collection('vendas').snapshots(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
 
                   if (snapshot.hasError) {
@@ -46,12 +46,19 @@ class _SellsPageState extends State<SellsPage> {
                         
                           
                           children: snapshot.data.documents.map <Widget> ((DocumentSnapshot doc) {
+                            
+                            String sellID = doc.documentID;
+                            String dataVenda = doc.data['data_venda'];
+                            double total = doc.data['total'];
 
                             return ListTile(
-                              //leading: Icon(Icons.people, size: 52),
                               leading: Image.network("https://i.imgur.com/BoN9kdC.png"),
-                              title: Text(doc.data['nome']),
-                              subtitle: Text("R\$ " + doc.data['preco'].toString()),
+                              title: Text(dataVenda),
+                              subtitle: Text("R\$ " + total.toString()),
+                              trailing: Icon(Icons.keyboard_arrow_right),
+                              onTap: () {
+                                Navigator.pushNamed(context, ConstantRoutes.SellInfoPageRoute, arguments: {"sell_id": sellID});
+                              },
                             );
 
                           }).toList(),

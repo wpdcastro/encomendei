@@ -34,7 +34,7 @@ class _SigninViewState extends State<SigninView> {
           child: Form(
             key: _formKey,
             child: Column(
-              children: <Widget>[
+              children: <Widget> [
             
                 TextFormField(
                   keyboardType: TextInputType.text,

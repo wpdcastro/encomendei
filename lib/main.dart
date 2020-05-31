@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
           '/start' : (context) => InitialView(),
           '/sell' : (context) => SellsPage(),
           '/order' : (context) => OrdersPage(),
-          '/sell/info' : (context) => SellInfoPage(),
+          '/sell/info' : (context) => SellInfoPage(sellID: 'N9Sr9d4KsyQ6GpQUYvgs'),
           '/signup' : (context) => SignupView(),
           '/signin' : (context) => SigninView(),
           '/history' : (context) => HistoryPage(),
