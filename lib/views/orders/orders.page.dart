@@ -2,24 +2,24 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:encomendei/constants/constantRoutes.dart';
 import 'package:flutter/material.dart';
 
-class ProductsPage extends StatefulWidget {
+class OrdersPage extends StatefulWidget {
 
-  ProductsPage({Key key}) : super(key: key);
+  OrdersPage({Key key}) : super(key: key);
 
   @override
-  _ProductsPageState createState() => _ProductsPageState();
+  _OrdersPageState createState() => _OrdersPageState();
 
 }
 
-class _ProductsPageState extends State<ProductsPage> {
+class _OrdersPageState extends State<OrdersPage> {
   
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Produtos")),
+      appBar: AppBar(title: Text("Encomendas")),
       floatingActionButton: FloatingActionButton(
         onPressed: () { 
-          Navigator.pushNamed(context, ConstantRoutes.AddProductPageRoute);  
+          Navigator.pushNamed(context, ConstantRoutes.AddOrderPageRoute);  
         },
         child: Icon(Icons.add),
       ),

@@ -2,24 +2,24 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:encomendei/constants/constantRoutes.dart';
 import 'package:flutter/material.dart';
 
-class ProductsPage extends StatefulWidget {
+class SellsPage extends StatefulWidget {
 
-  ProductsPage({Key key}) : super(key: key);
+  SellsPage({Key key}) : super(key: key);
 
   @override
-  _ProductsPageState createState() => _ProductsPageState();
+  _SellsPageState createState() => _SellsPageState();
 
 }
 
-class _ProductsPageState extends State<ProductsPage> {
+class _SellsPageState extends State<SellsPage> {
   
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Produtos")),
+      appBar: AppBar(title: Text("Vendas")),
       floatingActionButton: FloatingActionButton(
         onPressed: () { 
-          Navigator.pushNamed(context, ConstantRoutes.AddProductPageRoute);  
+          Navigator.pushNamed(context, ConstantRoutes.AddSellPageRoute);  
         },
         child: Icon(Icons.add),
       ),
@@ -28,7 +28,7 @@ class _ProductsPageState extends State<ProductsPage> {
           children: <Widget> [ 
             Expanded(
               child: StreamBuilder( 
-                stream: Firestore.instance.collection('produtos').snapshots(),
+                stream: Firestore.instance.collection('vendas').snapshots(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
 
                   if (snapshot.hasError) {
@@ -46,12 +46,19 @@ class _ProductsPageState extends State<ProductsPage> {
                         
                           
                           children: snapshot.data.documents.map <Widget> ((DocumentSnapshot doc) {
+                            
+                            String sellID = doc.documentID;
+                            String dataVenda = doc.data['data_venda'];
+                            double total = doc.data['total'];
 
                             return ListTile(
-                              //leading: Icon(Icons.people, size: 52),
                               leading: Image.network("https://i.imgur.com/BoN9kdC.png"),
-                              title: Text(doc.data['nome']),
-                              subtitle: Text("R\$ " + doc.data['preco'].toString()),
+                              title: Text(dataVenda),
+                              subtitle: Text("R\$ " + total.toString()),
+                              trailing: Icon(Icons.keyboard_arrow_right),
+                              onTap: () {
+                                Navigator.pushNamed(context, ConstantRoutes.SellInfoPageRoute, arguments: {"sell_id": sellID});
+                              },
                             );
 
                           }).toList(),

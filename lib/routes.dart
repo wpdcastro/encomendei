@@ -1,6 +1,6 @@
 import 'package:encomendei/views/initial/initial.view.dart';
 import 'package:encomendei/views/menu/menu.view.dart';
-import 'package:encomendei/views/sells/sells.view.dart';
+import 'package:encomendei/views/sells/sells.page.dart';
 import 'package:encomendei/views/signup/signup.view.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +18,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder:  (context) => SignupView());
 
     case ConstantRoutes.SellPageRoute: 
-      return MaterialPageRoute(builder:  (context) => SellsView());
+      return MaterialPageRoute(builder:  (context) => SellsPage());
 
     default: 
       return MaterialPageRoute(builder:  (context) => MenuView());

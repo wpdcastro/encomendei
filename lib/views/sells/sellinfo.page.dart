@@ -1,13 +1,20 @@
+import 'dart:convert';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:encomendei/constants/constantSystem.dart';
 import 'package:encomendei/widgets/line.widget.dart';
 import 'package:flutter/material.dart';
 
 class SellInfoPage extends StatelessWidget {
 
+  final String sellID;
+
+  const SellInfoPage({Key key, this.sellID}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final _pageWidth = MediaQuery.of(context).size.width;
-
+    print(sellID);
     return Scaffold(
       appBar: AppBar( 
         title: Text("Detalhes da Venda"),
@@ -68,6 +75,61 @@ class SellInfoPage extends StatelessWidget {
         SizedBox(height: 10),
         
         LineWidget(), 
+        
+        Text('teste $sellID'),
+
+
+        Expanded( 
+          child: StreamBuilder( 
+            //stream: Firestore.instance.collection('vendas').snapshots(),
+            stream: Firestore.instance.collection('vendas').document(sellID).snapshots(),
+            builder: (BuildContext context, AsyncSnapshot snapshot) {
+
+            if (snapshot.hasError) {
+              return Text('Error: ${snapshot.error}');
+            }
+
+            switch (snapshot.connectionState) { 
+              case ConnectionState.waiting:
+                return LinearProgressIndicator();
+                break;
+              default:
+                print('I can remember');
+                var sellItem = snapshot.data['itens'];
+                
+               // for (var item in sellItem) { 
+               //   if (item is String) print("É STRING");
+                  //var json1 = json.decode(item);
+
+               // }
+                
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget> [
+                  
+                    
+                  ],
+                );
+
+                return Center( 
+                  child: ListView(
+                    scrollDirection: Axis.vertical,
+                    children: snapshot.data['itens'].map <Widget> ((DocumentSnapshot doc) {
+                      
+                      print(doc);
+                      print(sellID);
+
+
+                      return ListTile(
+                        leading: Image.network("https://i.imgur.com/BoN9kdC.png"),
+                      );
+                    }).toList(),
+                  ),
+                );
+              }
+            },
+          ),
+        ),
 
         SizedBox(height: 10),
 

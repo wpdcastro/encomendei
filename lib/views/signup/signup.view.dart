@@ -36,6 +36,10 @@ class _SignupViewState extends State<SignupView> {
               children: <Widget>[
                 
                 Text('Infomrações do Usuário'),
+                RaisedButton(
+                  child: Text('Gmail'),
+                  onPressed: () {},
+                ),
 
                 TextFormField(
                   keyboardType: TextInputType.text,

@@ -2,19 +2,32 @@
 import 'package:encomendei/constants/constantRoutes.dart';
 import 'package:encomendei/stores/app.store.dart';
 import 'package:encomendei/views/menu/widgets/drawer.dart';
-import 'package:encomendei/views/menu/widgets/menu_card.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class MenuView extends StatefulWidget {
+class BottomTabs extends StatefulWidget {
   
-  const MenuView({ Key key }) : super(key: key);
+  const BottomTabs({ Key key }) : super(key: key);
 
   @override
-  _MenuView createState() => _MenuView();
+  _BottomTabs createState() => _BottomTabs();
 }
 
-class _MenuView extends State<MenuView> {
+class _BottomTabs extends State<BottomTabs> {
+  
+  int currentTabIndex = 0;
+  List<String> tabs = [ 
+    ConstantRoutes.MenuPageRoute,
+    ConstantRoutes.HistoryPageRoute,
+    ConstantRoutes.NotificationPageRoute,
+    ConstantRoutes.MenuPageRoute,
+  ];
+
+  onTapped (int index) {
+    setState(() {
+      currentTabIndex = index;
+    });
+  }
   
   @override
   Widget build(BuildContext context) {
@@ -54,56 +67,12 @@ class _MenuView extends State<MenuView> {
 
       drawer: DrawerMenu(),
 
-      body: Stack(
-        children: <Widget> [
-
-          Container(
-            color: Colors.deepOrangeAccent,
-            height: 120,
-            width: MediaQuery.of(context).size.width,
-            child: Column(
-              children: <Widget>[
-                Text(store.name),
-                Text(store.email),
-              ],
-            ),
-          ),
-          
-          Container(
-            color: Colors.deepOrangeAccent,
-            child: ListView(
-              //padding: const EdgeInsets.all(60),
-              
-              children: <Widget>[
-
-                SizedBox(height: 50),
-
-                MenuCard(
-                  route:  ConstantRoutes.SellPageRoute,
-                  label: "Vendas",
-                ),
-
-                SizedBox(height: 30),
-
-                MenuCard(
-                  route:  ConstantRoutes.OrderPageRoute,
-                  label: "Encomendas",
-
-                ),
-
-                SizedBox(height: 30),
-                 
-                MenuCard(
-                  route:  ConstantRoutes.ProductsPageRoute,
-                  label: "Produtos",
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
+      //body: Navigator.pushNamed(context, tabs[currentTabIndex]),
     
       bottomNavigationBar: BottomNavigationBar(
+
+        currentIndex: currentTabIndex,
+        onTap: onTapped,
         
         backgroundColor: Colors.blueGrey,
 

@@ -2,9 +2,23 @@
 import 'package:encomendei/constants/constantRoutes.dart';
 import 'package:encomendei/widgets/button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-class InitialView extends StatelessWidget {
-  final _testImage = 'https://images.unsplash.com/photo-1547665979-bb809517610d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80';
+class InitialView extends StatefulWidget {
+  
+  const InitialView({ Key key }) : super(key: key);
+
+  @override
+  _InitialView createState() => _InitialView();
+}
+
+class _InitialView extends State<InitialView> with SingleTickerProviderStateMixin {
+
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
+  }
   
   @override
   Widget build(BuildContext context) {
@@ -15,10 +29,7 @@ class InitialView extends StatelessWidget {
         
         decoration: BoxDecoration(
                     image: DecorationImage( 
-                      //image: Image.asset('assets/start_image.jpg'),
                       image: AssetImage('assets/images/start_image.jpg'),
-                      //image: AssetImage('images/background_initial.jpg'),
-                      //image: Image.asset("images/background_initial.jpg"),
                       fit: BoxFit.cover
                     ),
                   ),
@@ -85,7 +96,7 @@ class InitialView extends StatelessWidget {
                       padding: EdgeInsets.only(top: 15.0),
                       child: Button(
                         label: 'Já possui conta? Entre aqui',
-                        route: ConstantRoutes.SignupPageRoute,
+                        route: ConstantRoutes.SigninPageRoute,
                         background: Colors.white, 
                         colorLabel: Colors.black
                       ),
