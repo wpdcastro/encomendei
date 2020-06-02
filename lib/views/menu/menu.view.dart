@@ -45,7 +45,8 @@ class _MenuView extends State<MenuView> {
               color: Colors.white
             ),
             onPressed: () {
-              Navigator.pushNamed(context, ConstantRoutes.NotificationPageRoute);
+             // Navigator.pushNamed(context, ConstantRoutes.NotificationPageRoute);
+             Navigator.pushNamed(context, ConstantRoutes.ProfilePageRoute);
             },
           ),
         ],

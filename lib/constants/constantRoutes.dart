@@ -3,6 +3,7 @@ class ConstantRoutes {
   static const String MenuPageRoute = '/';
   static const String InitialPageRoute = '/start';
   static const String SellPageRoute = '/sell';
+  static const String ProfilePageRoute = '/profile';
   static const String AddSellPageRoute = '/add/sell';
   static const String SellInfoPageRoute = '/sell/info';
   static const String SignupPageRoute = '/signup';

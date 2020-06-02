@@ -8,6 +8,7 @@ import 'package:encomendei/views/orders/add_order.page.dart';
 import 'package:encomendei/views/orders/orders.page.dart';
 import 'package:encomendei/views/products/add_product.page.dart';
 import 'package:encomendei/views/products/products.page.dart';
+import 'package:encomendei/views/profile/profile.page.dart';
 import 'package:encomendei/views/publish/publish.page.dart';
 import 'package:encomendei/views/sells/add_sell.page.dart';
 import 'package:encomendei/views/sells/sellinfo.page.dart';
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
           '/sell/info' : (context) => SellInfoPage(sellID: 'N9Sr9d4KsyQ6GpQUYvgs'),
           '/signup' : (context) => SignupView(),
           '/signin' : (context) => SigninView(),
+          '/profile' : (context) => ProfilePage(),
           '/history' : (context) => HistoryPage(),
           '/products' : (context) => ProductsPage(),
           '/publish' : (context) => PublishPage(),

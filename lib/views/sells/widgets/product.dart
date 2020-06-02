@@ -30,6 +30,7 @@ class ProductWidget extends StatelessWidget {
                       splashColor: Colors.grey,
                       onPressed: () {
                       // faz alguma coisa
+                        
                       },
                     ),
                   ),
