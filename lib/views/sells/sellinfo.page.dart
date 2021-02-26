@@ -14,7 +14,6 @@ class SellInfoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _pageWidth = MediaQuery.of(context).size.width;
-    print(sellID);
     return Scaffold(
       appBar: AppBar( 
         title: Text("Detalhes da Venda"),

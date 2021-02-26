@@ -25,9 +25,9 @@ class _SplashState extends State<Splash> {
             color: Colors.orangeAccent,
             child: Center(
               child: Container(
-                width: 150,
-                height: 150,
-                child: Image(image: AssetImage('assets/images/logo_white.jpeg')),
+                width: 250,
+                height: 250,
+                child: Image(image: AssetImage('assets/images/encomendei_w.png')),
               ),
             )
         );

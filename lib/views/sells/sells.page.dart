@@ -16,7 +16,7 @@ class _SellsPageState extends State<SellsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Vendas")),
+      appBar: AppBar(title: Text("Vendas"), backgroundColor: Colors.deepOrangeAccent),
       floatingActionButton: FloatingActionButton(
         onPressed: () { 
           Navigator.pushNamed(context, ConstantRoutes.AddSellPageRoute);  
@@ -52,7 +52,11 @@ class _SellsPageState extends State<SellsPage> {
                             double total = doc.data['total'];
 
                             return ListTile(
-                              leading: Image.network("https://i.imgur.com/BoN9kdC.png"),
+                              leading: Container(
+                                  color: Colors.blueAccent,
+                                  height: 120,
+                                  width: 8,
+                                ),
                               title: Text(dataVenda),
                               subtitle: Text("R\$ " + total.toString()),
                               trailing: Icon(Icons.keyboard_arrow_right),

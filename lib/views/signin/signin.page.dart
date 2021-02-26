@@ -90,10 +90,14 @@ class _SigninViewState extends State<SigninView> {
                     model.password = val;
                   }
                 ),
+                SizedBox(height: 10,),
+                Align(alignment: Alignment.centerRight, child: new Text("Esqueci minha senha")),
+               
             
                 SizedBox(height: 60),
 
                 model.busy ?
+
                   Center(
                     child: Container(
                       child: CircularProgressIndicator(backgroundColor: Colors.redAccent,),
@@ -103,7 +107,50 @@ class _SigninViewState extends State<SigninView> {
                   Container( 
                     decoration: BoxDecoration(color : Colors.redAccent),
                     child: FlatButton(
-                      child: const Text("Cadastrar", style: TextStyle(color : Colors.white),),
+                      child: const Text("Entrar", style: TextStyle(color : Colors.white),),
+                      onPressed: () {
+                        if (_formKey.currentState.validate()) {
+                          _formKey.currentState.save();
+          
+                          setState(() {}); 
+                          
+                          _controller.create(model).then((data) {
+                              setState(() {});
+                              store.SetUser(data.name, data.email, data.image, data.token);
+                              Navigator.pushNamed(context, ConstantRoutes.MenuPageRoute);
+                          });
+                        }  
+                      },
+                    ),
+                  ) ,
+
+                  SizedBox(height: 20,),
+                  Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget> [
+                        Container(
+                          height: 1, 
+                          color: Colors.grey, 
+                          width: 100
+                        ),
+
+                        Text("OU"),
+
+                        Container(
+                          height: 1, 
+                          color: Colors.grey, 
+                          width: 100
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 20,),
+
+                  Container( 
+                    decoration: BoxDecoration(color : Colors.redAccent),
+                    child: FlatButton(
+                      child: const Text("Entrar com Gmail", style: TextStyle(color : Colors.white),),
                       onPressed: () {
                         if (_formKey.currentState.validate()) {
                           _formKey.currentState.save();

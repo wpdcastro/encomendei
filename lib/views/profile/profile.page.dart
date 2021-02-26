@@ -1,5 +1,6 @@
 
 import 'package:encomendei/constants/constantRoutes.dart';
+import 'package:encomendei/constants/constantSystem.dart';
 import 'package:encomendei/controllers/profile.controller.dart';
 import 'package:encomendei/model/profile.model.dart';
 import 'package:encomendei/stores/app.store.dart';
@@ -20,8 +21,8 @@ class _ProfileViewState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-
     var store = Provider.of<Appstore>(context);
+    
 
     return Scaffold(
       appBar: AppBar(
@@ -34,7 +35,8 @@ class _ProfileViewState extends State<ProfilePage> {
           child: Form(
             key: _formKey,
             child: Column(
-              children: <Widget>[
+              children: <Widget> [
+
                 Container(
                   height: 80,
                   width: 80,
@@ -42,154 +44,33 @@ class _ProfileViewState extends State<ProfilePage> {
                       borderRadius: BorderRadius.all(Radius.circular(80)),
                       image: new DecorationImage(
                           fit: BoxFit.fill,
-                          image: NetworkImage("https://i.imgur.com/BoN9kdC.png")
+                          image: NetworkImage(store.image)
                       )
                   ),
                 ),
-                TextFormField(
-                    keyboardType: TextInputType.text,
-                    autofocus: false,
-                    decoration: InputDecoration(
-                        labelText: 'Nome',
-                        labelStyle: TextStyle(
-                          color: Colors.redAccent,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        )
-                    ),
-                    validator: (String value) {
-                      //return value.contains('@') ? 'Do not use the @ char.' : null;
-                      if (value.isEmpty) {
-                        return 'E-mail Inválido';
-                      }
-                      return null;
-                    },
-                    onSaved: (val) {
-                      model.email = val;
-                    }
-                ),
 
-                TextFormField(
-                    autofocus: false,
-                    keyboardType: TextInputType.text,
-                    obscureText: true,
-                    decoration: InputDecoration(
-                        labelText: 'Endereço',
-                        labelStyle: TextStyle(
-                          color: Colors.redAccent,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        )
-                    ),
-                    validator: (String value) {
-
-                      if (value.trim().isEmpty) {
-                        return 'Endereço Inválido';
-                      }
-                      return null;
-                    },
-                    onSaved: (val) {
-                      model.address = val;
-                    }
-                ),
-
-                TextFormField(
-                    autofocus: false,
-                    keyboardType: TextInputType.text,
-                    obscureText: true,
-                    decoration: InputDecoration(
-                        labelText: 'Cidade',
-                        labelStyle: TextStyle(
-                          color: Colors.redAccent,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        )
-                    ),
-                    validator: (String value) {
-
-                      if (value.trim().isEmpty) {
-                        return 'Cidade Inválida';
-                      }
-                      return null;
-                    },
-                    onSaved: (val) {
-                      model.city = val;
-                    }
-                ),
-
-                TextFormField(
-                    keyboardType: TextInputType.text,
-                    autofocus: false,
-                    decoration: InputDecoration(
-                        labelText: 'E-mail',
-                        labelStyle: TextStyle(
-                          color: Colors.redAccent,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        )
-                    ),
-                    validator: (String value) {
-                      //return value.contains('@') ? 'Do not use the @ char.' : null;
-                      if (value.isEmpty) {
-                        return 'E-mail Inválido';
-                      }
-                      return null;
-                    },
-                    onSaved: (val) {
-                      model.email = val;
-                    }
-                ),
-
-                TextFormField(
-                    keyboardType: TextInputType.text,
-                    autofocus: false,
-                    decoration: InputDecoration(
-                        labelText: 'Telefone',
-                        labelStyle: TextStyle(
-                          color: Colors.redAccent,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        )
-                    ),
-                    validator: (String value) {
-                      //return value.contains('@') ? 'Do not use the @ char.' : null;
-                      if (value.isEmpty) {
-                        return 'Telefone Inválido';
-                      }
-                      return null;
-                    },
-                    onSaved: (val) {
-                      model.tel = val;
-                    }
-                ),
-
-
-                SizedBox(height: 60),
-
-                model.busy ?
-                Center(
-                  child: Container(
-                    child: CircularProgressIndicator(backgroundColor: Colors.redAccent,),
-                  ),
-                )
-                    :
+                SizedBox(height: 40,),
+                
                 Container(
+                  height: 360,
+                  
+                  child: Column(
+                    children: <Widget> [
+                      Text('Nome: ' + store.name),
+                      SizedBox(height: 30,),
+                      Text('E-mail:' + store.email),
+                    ],
+                  ),
+                ),
+              
+                Container(
+                  height: 60,
+                  width:  MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(color : Colors.redAccent),
                   child: FlatButton(
+                    
                     child: const Text("Atualizar", style: TextStyle(color : Colors.white),),
-                    onPressed: () {
-                      if (_formKey.currentState.validate()) {
-                        _formKey.currentState.save();
-
-                        setState(() {});
-
-                       // _controller.update(model).then((data) {
-                       //   setState(() {});
-                       //   store.ProfileModel(data.name, data.email, data.image, data.address, data.city, data.tel, data.token);
-                      //    Navigator.pushNamed(context, ConstantRoutes.MenuPageRoute);
-                       // });
-                      }
-                    },
+                    onPressed: () {},
                   ),
                 ) ,
               ],

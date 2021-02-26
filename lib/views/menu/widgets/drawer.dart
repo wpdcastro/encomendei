@@ -1,3 +1,4 @@
+import 'package:encomendei/constants/constantRoutes.dart';
 import 'package:encomendei/stores/app.store.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -31,41 +32,37 @@ class DrawerMenu extends StatelessWidget {
               onTap: () {
                 // Update the state of the app.
                 // ...
+                //Navigator.pushNamed(context, ConstantRoutes);
               },
             ),
             ListTile(
               title: Text('Vendas'),
               onTap: () {
-                // Update the state of the app.
-                // ...
+                Navigator.pushNamed(context, ConstantRoutes.SellPageRoute);
               },
             ),
             ListTile(
               title: Text('Categorias'),
               onTap: () {
-                // Update the state of the app.
-                // ...
+                Navigator.pushNamed(context, ConstantRoutes.SellPageRoute);
               },
             ),
             ListTile(
               title: Text('Encomendas'),
               onTap: () {
-                // Update the state of the app.
-                // ...
+                Navigator.pushNamed(context, ConstantRoutes.SellPageRoute);
               },
             ),
             ListTile(
               title: Text('Configurações'),
               onTap: () {
-                // Update the state of the app.
-                // ...
+                Navigator.pushNamed(context, ConstantRoutes.SellPageRoute);
               },
             ),
             ListTile(
               title: Text('Sair'),
               onTap: () {
-                // Update the state of the app.
-                // ...
+                Navigator.pushNamed(context, ConstantRoutes.SellPageRoute);
               },
             ),
 

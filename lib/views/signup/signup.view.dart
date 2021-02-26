@@ -35,7 +35,7 @@ class _SignupViewState extends State<SignupView> {
             child: Column(
               children: <Widget>[
                 
-                Text('Infomrações do Usuário'),
+                Text('Informações do Usuário'),
                 RaisedButton(
                   child: Text('Gmail'),
                   onPressed: () {},

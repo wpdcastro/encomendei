@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         title: 'Encomendei',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          primarySwatch: Colors.red,
+          primarySwatch: Colors.deepOrange,
         ),
         initialRoute: '/splash',
         routes: {
